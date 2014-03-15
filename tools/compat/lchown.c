@@ -32,7 +32,9 @@
 /* Emulate lchown(2), checking path with lstat(2) first to ensure that
  * it's not a symlink, and then call chown(2) */
 
+#if !defined(__minix) && !defined(_LIBC)
 #include "nbtool_config.h"
+#endif /* !defined(__minix) && !defined(_LIBC) */
 
 #if !HAVE_LCHOWN
 #include <sys/stat.h>
